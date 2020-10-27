@@ -1,0 +1,21 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <Authors>Nikita Sharov</Authors>
+    <Company>Actin Uranium</Company>
+    <Product>Word Counter</Product>
+    <Version>2020.10.27</Version>
+    <NeutralLanguage>en</NeutralLanguage>
+    <Copyright>2020 Nikita Sharov</Copyright>
+    <PackageLicenseFile>LICENSE.md</PackageLicenseFile>
+    <PackageLicenseExpression>Copyright (c) 2020 Nikita Sharov</PackageLicenseExpression>
+    <PackageProjectUrl>https://github.com/nikita-sharov/word-counter</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/nikita-sharov/word-counter</RepositoryUrl>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="System.Text.Encoding.CodePages" Version="4.7.1" />
+  </ItemGroup>
+
+</Project>

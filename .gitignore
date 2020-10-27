@@ -348,3 +348,10 @@ MigrationBackup/
 
 # Ionide (cross platform F# VS Code tools) working folder
 .ionide/
+/tests/WordCounter.Tests/data/imdb_title-ratings.tsv
+/tests/WordCounter.Tests/data/imdb_title-principals.tsv
+/tests/WordCounter.Tests/data/imdb_title-episode.tsv
+/tests/WordCounter.Tests/data/imdb_title-crew.tsv
+/tests/WordCounter.Tests/data/imdb_title-basics.tsv
+/tests/WordCounter.Tests/data/imdb_title-akas.tsv
+/tests/WordCounter.Tests/data/imdb_name-basics.tsv

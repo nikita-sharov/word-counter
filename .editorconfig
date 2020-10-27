@@ -1,0 +1,11 @@
+[*]
+charset = utf-8
+
+# CA2007: Consider calling ConfigureAwait on the awaited task
+dotnet_diagnostic.CA2007.severity = silent
+
+# CA1062: Validate arguments of public methods
+dotnet_diagnostic.CA1062.severity = silent
+
+# CA2227: Collection properties should be read only
+dotnet_diagnostic.CA2227.severity = silent
