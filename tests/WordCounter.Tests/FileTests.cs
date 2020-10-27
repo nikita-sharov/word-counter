@@ -4,6 +4,7 @@ using System.IO;
 namespace WordCounter.Tests
 {
     [TestClass]
+    [Ignore("Exploratory testing")]
     public class FileTests
     {
         // https://datasets.imdbws.com/title.principals.tsv.gz (1.7 GB, uncompressed)

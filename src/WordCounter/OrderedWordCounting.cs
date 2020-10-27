@@ -5,9 +5,7 @@ namespace WordCounter
 {
     public sealed class OrderedWordCounting : Dictionary<int, KeyValuePair<string, int>>
     {
-        private OrderedWordCounting() { }
-
-        public static OrderedWordCounting Create(WordCounting counting)
+        public static OrderedWordCounting OrderByWordCountDescending(WordCounting counting)
         {
             var orderedCounting = new OrderedWordCounting();
             IOrderedEnumerable<KeyValuePair<string, int>> pairs =
