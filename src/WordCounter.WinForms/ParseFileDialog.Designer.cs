@@ -16,7 +16,7 @@ namespace WordCounter.WinForms
             if (disposing && (components != null))
             {
                 components.Dispose();
-                cancellationTokenSource.Dispose();
+                CancellationTokenSource.Dispose();
             }
 
             base.Dispose(disposing);
