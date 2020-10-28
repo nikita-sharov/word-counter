@@ -8,9 +8,9 @@
     <PackageProjectUrl>https://github.com/nikita-sharov/word-counter</PackageProjectUrl>
     <Product>Word Counter</Product>
     <NeutralLanguage>en</NeutralLanguage>
-    <AssemblyVersion>2020.10.27.0</AssemblyVersion>
-    <FileVersion>2020.10.27.0</FileVersion>
-    <Version>2020.10.27</Version>
+    <AssemblyVersion>2020.10.28.0</AssemblyVersion>
+    <FileVersion>2020.10.28.0</FileVersion>
+    <Version>2020.10.28</Version>
     <Authors>Nikita Sharov</Authors>
     <Company>Actin Uranium</Company>
     <Copyright>2020 Nikita Sharov</Copyright>

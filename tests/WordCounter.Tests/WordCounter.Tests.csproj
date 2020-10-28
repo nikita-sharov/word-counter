@@ -5,7 +5,7 @@
 
     <IsPackable>false</IsPackable>
 
-    <Version>2020.10.27</Version>
+    <Version>2020.10.28</Version>
 
     <NeutralLanguage>en</NeutralLanguage>
 
@@ -61,6 +61,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Update="data\gutenberg_war-and-peace.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="data\imdb_title-akas_subset.tsv">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>
