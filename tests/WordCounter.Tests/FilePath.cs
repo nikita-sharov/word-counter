@@ -27,7 +27,7 @@ namespace WordCounter.Tests
         public const string ImdbTitleAkas = @"..\..\..\data\imdb_title-akas.tsv";
 
         /// <summary>
-        /// Localized IMDB titles (UTF-8, 50 MB subset)
+        /// Localized IMDB titles (UTF-8, 50 MB subset, uncompressed)
         /// </summary>
         /// <seealso href="https://datasets.imdbws.com/title.akas.tsv.gz"/>
         public const string ImdbTitleAkasSubset = @"..\..\..\data\imdb_title-akas_subset.tsv";
