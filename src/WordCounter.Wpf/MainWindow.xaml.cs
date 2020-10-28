@@ -1,28 +1,81 @@
-﻿using System;
+using Microsoft.Win32;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace WordCounter.Wpf
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
     public partial class MainWindow : Window
     {
+        private OrderedWordCounting orderedWordCounting;
+
         public MainWindow()
         {
             InitializeComponent();
+            Title = ApplicationInfo.Title;
+            PopulateEncodingComboBox();
+
+            dataGrid.Items.Add(new { Word = "bubu", Count = 2 });
+            dataGrid.Items.Add(new { Word = "Gaga", Count = 1 });
+        }
+
+        private void PopulateEncodingComboBox()
+        {
+            encodingComboBox.DisplayMemberPath = nameof(CustomEncodingInfo.DisplayName);
+            IEnumerable<CustomEncodingInfo> encodings =
+                SupportedEncoding.GetEncodings().OrderBy(e => e.DisplayName);
+
+            foreach (CustomEncodingInfo encoding in encodings)
+            {
+                encodingComboBox.Items.Add(encoding);
+            }
+
+            encodingComboBox.SelectedItem = CustomEncodingInfo.ANSI;
+        }
+
+        private void OnParseButtonClick(object sender, RoutedEventArgs e)
+        {
+            var openFileDialog = CreateOpenFileDialog();
+            if (openFileDialog.ShowDialog() == true)
+            {
+                Encoding encoding = GetSelectedEncoding();
+                var parseFileDialog = new ParseFileDialog(openFileDialog.FileName, encoding);
+                parseFileDialog.Owner = this;
+                if (parseFileDialog.ShowDialog() == true)
+                {
+                    orderedWordCounting = parseFileDialog.OrderedWordCounting;
+                    UpdateFileTextBox(openFileDialog.FileName);
+                    //UpdateDataGridView();
+                }
+            }
+        }
+
+        private Encoding GetSelectedEncoding()
+        {
+            return SupportedEncoding.GetEncoding(encodingComboBox.SelectedItem as CustomEncodingInfo);
+        }
+
+        private static OpenFileDialog CreateOpenFileDialog() =>
+            new OpenFileDialog
+            {
+                Title = "Parse File",
+                RestoreDirectory = true,
+                Filter = "Text files (*.txt)|*.txt|All files (*.*)|*.*",
+                Multiselect = false,
+                CheckFileExists = true
+            };
+
+        private void UpdateFileTextBox(string path)
+        {
+            var fileInfo = new FileInfo(path);
+            fileTextBox.Text = fileInfo.Name;
+        }
+
+        private void dataGrid_LoadingRow(object sender, System.Windows.Controls.DataGridRowEventArgs e)
+        {
+
         }
     }
 }

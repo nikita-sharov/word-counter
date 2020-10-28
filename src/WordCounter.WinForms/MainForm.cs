@@ -57,7 +57,6 @@ namespace WordCounter.WinForms
             new OpenFileDialog
             {
                 Title = "Parse File",
-                ////InitialDirectory = Environment.CurrentDirectory,
                 RestoreDirectory = true,
                 Filter = "Text files (*.txt)|*.txt|All files (*.*)|*.*",
                 Multiselect = false,

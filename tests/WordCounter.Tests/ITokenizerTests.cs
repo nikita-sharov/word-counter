@@ -26,10 +26,10 @@ namespace WordCounter.Tests
 
             string[] allWords = Tokenizer.Tokenize(text).ToArray();
             Assert.IsNotNull(allWords);
-            Assert.AreEqual(824_225, allWords.Length); // compare to 749_264 from the IParserTests.cs
+            Assert.AreEqual(824_225, allWords.Length); // 749_264 according to the IParserTests.cs
 
             string[] uniqueWords = allWords.Distinct().ToArray();
-            Assert.AreEqual(34_081, uniqueWords.Length); // compare to 30_141, respectively
+            Assert.AreEqual(34_081, uniqueWords.Length); // 30_141, respectively
         }
     }
 }
