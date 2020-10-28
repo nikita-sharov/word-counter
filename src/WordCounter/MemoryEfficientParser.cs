@@ -8,7 +8,7 @@ namespace WordCounter
 {
     /// <summary>
     /// A sequential implementation of an <see cref="IParser"/>, being more memory-efficient and
-    /// snappier in cancelation but less performant than the <see cref="PerformanceOptimizedParser"/>.
+    /// snappier in cancelation but less performant than the <see cref="HighPerformanceParser"/>.
     /// </summary>
     /// <remarks>Reads the text file line by line counting word occurencies.</remarks>
     public sealed class MemoryEfficientParser : Parser

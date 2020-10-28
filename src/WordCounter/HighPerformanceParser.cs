@@ -8,19 +8,19 @@ using System.Threading.Tasks;
 
 namespace WordCounter
 {
-    public sealed class PerformanceOptimizedParser : Parser
+    public sealed class HighPerformanceParser : Parser
     {
         /// <summary>
         /// A parallelized implementation of an <see cref="IParser"/>, being more performant but
-        /// sluggish in cancelation and less memory-efficient than the <see cref="PerformanceOptimizedParser"/>.
+        /// sluggish in cancelation and less memory-efficient than the <see cref="HighPerformanceParser"/>.
         /// </summary>
         /// <remarks>Reads the whole text file at once counting word occurencies in parallel afterwards.</remarks>
-        public PerformanceOptimizedParser()
+        public HighPerformanceParser()
             : this(new LazyTokenizer())
         {
         }
 
-        public PerformanceOptimizedParser(ITokenizer tokenizer)
+        public HighPerformanceParser(ITokenizer tokenizer)
             : base(tokenizer)
         {
         }

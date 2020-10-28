@@ -12,7 +12,7 @@ namespace WordCounter.Wpf
     public partial class ParseFileDialog : Window
     {
         public ParseFileDialog(string path, Encoding encoding)
-            : this(new PerformanceOptimizedParser(), path, encoding)
+            : this(new HighPerformanceParser(), path, encoding)
         {
         }
 

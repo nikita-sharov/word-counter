@@ -10,10 +10,12 @@ A coding dojo
 - Microsoft.CodeAnalysis.FxCopAnalyzers conformance
 - Resource files
 - German localization
-- Exception handling
+- Exception handling (File-IO based)
 - Representative application icons in multiple sizes
 - Additional statistics (total word count, file size, memory usage, etc.)
-- User settings (window size and position, recently used)
+- User settings (window size and position, recently parsed files)
+- Start-up with the last parsed file pre-loaded (binary serialized stats)
+- Installer
 - MVVM pattern
 - UWP (WinUI / Telerik UI for WPF) solution (Windows 10 only)
 - Web application
