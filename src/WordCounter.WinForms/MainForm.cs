@@ -101,11 +101,7 @@ namespace WordCounter.WinForms
         {
             if (!string.IsNullOrEmpty(fileTextBox.Text))
             {
-                ////Encoding encoding = GetSelectedEncoding();
-                ////Dictionary<string, int> stats = CountWords(fileTextBox.Text, encoding);
-                ////dataStore = CreateDataStore(stats);
-                ////dataGridView.Rows.Clear();
-                ////dataGridView.RowCount = dataStore.Count;
+                // re-open / re-parse file with the selected encoding
             }
         }
     }
