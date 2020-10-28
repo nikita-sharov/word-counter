@@ -1,5 +1,6 @@
 using System.Collections.Concurrent;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Text;
 using System.Threading;
@@ -27,12 +28,11 @@ namespace WordCounter
         public override Task<WordCounting> ParseAsync(
             string path, Encoding encoding, CancellationToken cancellationToken = default)
         {
-            var globalCounting = new ConcurrentDictionary<string, int>();
-
             string[] lines = File.ReadAllLines(path, encoding);
             cancellationToken.ThrowIfCancellationRequested();
 
-            Parallel.For(
+            var countings = new ConcurrentBag<WordCounting>();
+            ParallelLoopResult loopResult = Parallel.For(
                 fromInclusive: 0,
                 toExclusive: lines.Length,
                 localInit: () => new WordCounting(),
@@ -56,14 +56,12 @@ namespace WordCounter
                 },
                 localFinally: (localCounting) =>
                 {
-                    foreach (KeyValuePair<string, int> wordCount in localCounting)
-                    {
-                        globalCounting.AddOrUpdate(wordCount.Key, 1, (word, oldValue) => oldValue + wordCount.Value);
-                    }
+                    countings.Add(localCounting);
                 });
 
-            var counting = new WordCounting(globalCounting);
-            return Task.FromResult(counting);
+            Debug.Assert(loopResult.IsCompleted);
+            WordCounting mergedCountings = WordCounting.Merge(countings);
+            return Task.FromResult(mergedCountings);
         }
     }
 }
