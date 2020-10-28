@@ -12,7 +12,7 @@ namespace WordCounter
     {
         /// <summary>
         /// A parallelized implementation of an <see cref="IParser"/>, being more performant but
-        /// less memory-efficient than the <see cref="PerformanceOptimizedParser"/>.
+        /// sluggish in cancelation and less memory-efficient than the <see cref="PerformanceOptimizedParser"/>.
         /// </summary>
         /// <remarks>Reads the whole text file at once counting word occurencies in parallel afterwards.</remarks>
         public PerformanceOptimizedParser()
@@ -66,6 +66,7 @@ namespace WordCounter
                 });
 
             Debug.Assert(loopResult.IsCompleted);
+            cancellationToken.ThrowIfCancellationRequested();
             WordCounting mergedCountings = WordCounting.Merge(countings);
             return Task.FromResult(mergedCountings);
         }

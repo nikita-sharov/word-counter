@@ -3,6 +3,7 @@ using System.IO;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading;
+using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Interop;
 
@@ -11,7 +12,6 @@ namespace WordCounter.Wpf
     public partial class ParseFileDialog : Window
     {
         public ParseFileDialog(string path, Encoding encoding)
-            ////: this(new MemoryEfficientParser(), path, encoding)
             : this(new PerformanceOptimizedParser(), path, encoding)
         {
         }
@@ -61,7 +61,18 @@ namespace WordCounter.Wpf
             HideCloseButton();
             try
             {
-                WordCounting counting = await Parser.ParseAsync(Path, Encoding, CancellationTokenSource.Token);
+                WordCounting counting = await Task.Run(() =>
+                {
+                    try
+                    {
+                        return Parser.ParseAsync(Path, Encoding, CancellationTokenSource.Token);
+                    }
+                    catch (OperationCanceledException ex)
+                    {
+                        return Task.FromCanceled<WordCounting>(ex.CancellationToken);
+                    }
+                });
+
                 OrderedWordCounting = OrderedWordCounting.OrderByWordCountDescending(counting);
                 DialogResult = true;
             }
@@ -76,6 +87,8 @@ namespace WordCounter.Wpf
         private void OnCancelButtonClick(object sender, RoutedEventArgs e)
         {
             CancellationTokenSource.Cancel();
+            cancelButton.IsEnabled = false;
+            Title = "Canceling";
         }
 
         private void OnClosed(object sender, EventArgs e)

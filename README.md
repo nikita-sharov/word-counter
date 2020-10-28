@@ -4,7 +4,7 @@ A coding dojo
 
 ## Nice to have
 
-- Progress dialog flicker prevention
+- Progress dialog flicker prevention on smaller text files (parsing time under 0.5 seconds)
 - Fine-grained progress reporting (reading file, decoding text, counting words)
 - GlobalAssemblyInfo.cs
 - Microsoft.CodeAnalysis.FxCopAnalyzers conformance

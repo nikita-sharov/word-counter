@@ -2,6 +2,7 @@ using System;
 using System.IO;
 using System.Text;
 using System.Threading;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace WordCounter.WinForms
@@ -9,7 +10,6 @@ namespace WordCounter.WinForms
     public partial class ParseFileDialog : Form
     {
         public ParseFileDialog(string path, Encoding encoding)
-            ////: this(new MemoryEfficientParser(), path, encoding)
             : this(new PerformanceOptimizedParser(), path, encoding)
         {
         }
@@ -43,7 +43,18 @@ namespace WordCounter.WinForms
         {
             try
             {
-                WordCounting counting = await Parser.ParseAsync(Path, Encoding, CancellationTokenSource.Token);
+                WordCounting counting = await Task.Run(() =>
+                {
+                    try
+                    {
+                        return Parser.ParseAsync(Path, Encoding, CancellationTokenSource.Token);
+                    }
+                    catch (OperationCanceledException ex)
+                    {
+                        return Task.FromCanceled<WordCounting>(ex.CancellationToken);
+                    }
+                });
+
                 OrderedWordCounting = OrderedWordCounting.OrderByWordCountDescending(counting);
                 DialogResult = DialogResult.OK;
             }
@@ -58,6 +69,8 @@ namespace WordCounter.WinForms
         private void OnCancelButtonClick(object sender, EventArgs e)
         {
             CancellationTokenSource.Cancel();
+            cancelButton.Enabled = false;
+            Text = "Canceling";
         }
     }
 }
