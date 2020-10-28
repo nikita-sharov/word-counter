@@ -8,16 +8,13 @@ namespace WordCounter.Tests
     [Ignore("Exploratory testing")]
     public class FileTests
     {
-        // https://datasets.imdbws.com/title.principals.tsv.gz
-        ////public const string Path = "data/imdb_title-principals.tsv"; // 1.7 GB, uncompressed
-
         private static string BibleText;
 
         public static string GetBibleText()
         {
             if (BibleText == null)
             {
-                BibleText = File.ReadAllText("data/gutenberg_king-james-bible.txt", Encoding.UTF8);
+                BibleText = File.ReadAllText(FilePath.KingJamesBible, Encoding.UTF8);
             }
 
             return BibleText;
