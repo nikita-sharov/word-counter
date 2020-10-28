@@ -10,13 +10,9 @@ namespace WordCounter.Wpf
 {
     public partial class ParseFileDialog : Window
     {
-        public ParseFileDialog()
-        {
-            InitializeComponent();
-        }
-
         public ParseFileDialog(string path, Encoding encoding)
-            : this(new MemoryEfficientParser(), path, encoding)
+            ////: this(new MemoryEfficientParser(), path, encoding)
+            : this(new PerformanceOptimizedParser(), path, encoding)
         {
         }
 

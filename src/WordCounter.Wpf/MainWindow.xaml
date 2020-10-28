@@ -5,7 +5,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="clr-namespace:WordCounter.Wpf"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    Title="Word Counter v2020.10.26"
+    Title="Word Counter"
     Width="640"
     Height="480"
     MinWidth="240"
@@ -44,14 +44,16 @@
                 <ColumnDefinition />
                 <ColumnDefinition Width="Auto" />
             </Grid.ColumnDefinitions>
-            <TextBox x:Name="fileTextBox"
+            <TextBox
+                x:Name="fileTextBox"
                 Height="23"
                 HorizontalAlignment="Stretch"
                 VerticalAlignment="Top"
                 VerticalContentAlignment="Center"
+                IsEnabled="False"
                 IsReadOnly="True"
                 Text="Select the file to parse using the encoding above"
-                TextWrapping="NoWrap" IsEnabled="False" />
+                TextWrapping="NoWrap" />
             <Button
                 x:Name="parseButton"
                 Grid.Column="1"
@@ -68,16 +70,14 @@
             CanUserAddRows="False"
             CanUserDeleteRows="False"
             CanUserResizeRows="False"
-            GridLinesVisibility="Horizontal"
             HeadersVisibility="Column"
             HorizontalGridLinesBrush="#FFA0A0A0"
-            RowHeight="23"
             SelectionMode="Single"
-            VerticalGridLinesBrush="#FFA0A0A0" LoadingRow="dataGrid_LoadingRow">
+            VerticalGridLinesBrush="#FFA0A0A0">
             <DataGrid.Columns>
                 <DataGridTextColumn
                     Width="*"
-                    Binding="{Binding Word}"
+                    Binding="{Binding Key}"
                     CanUserReorder="False"
                     CanUserSort="False"
                     Header="Word">
@@ -89,13 +89,12 @@
                     <DataGridTextColumn.CellStyle>
                         <Style TargetType="DataGridCell">
                             <Setter Property="HorizontalAlignment" Value="Right" />
-                            <Setter Property="VerticalContentAlignment" Value="Center" />
                         </Style>
                     </DataGridTextColumn.CellStyle>
                 </DataGridTextColumn>
                 <DataGridTextColumn
                     Width="*"
-                    Binding="{Binding Count}"
+                    Binding="{Binding Value}"
                     CanUserReorder="False"
                     CanUserSort="False"
                     Header="Count">

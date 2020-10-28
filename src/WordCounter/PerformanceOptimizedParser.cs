@@ -32,9 +32,15 @@ namespace WordCounter
             cancellationToken.ThrowIfCancellationRequested();
 
             var countings = new ConcurrentBag<WordCounting>();
+            var options = new ParallelOptions
+            {
+                CancellationToken = cancellationToken
+            };
+
             ParallelLoopResult loopResult = Parallel.For(
                 fromInclusive: 0,
                 toExclusive: lines.Length,
+                parallelOptions: options,
                 localInit: () => new WordCounting(),
                 body: (lineIndex, loopState, localCounting) =>
                 {

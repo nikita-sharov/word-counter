@@ -16,9 +16,6 @@ namespace WordCounter.Wpf
             InitializeComponent();
             Title = ApplicationInfo.Title;
             PopulateEncodingComboBox();
-
-            dataGrid.Items.Add(new { Word = "bubu", Count = 2 });
-            dataGrid.Items.Add(new { Word = "Gaga", Count = 1 });
         }
 
         private void PopulateEncodingComboBox()
@@ -45,9 +42,8 @@ namespace WordCounter.Wpf
                 parseFileDialog.Owner = this;
                 if (parseFileDialog.ShowDialog() == true)
                 {
-                    orderedWordCounting = parseFileDialog.OrderedWordCounting;
                     UpdateFileTextBox(openFileDialog.FileName);
-                    //UpdateDataGridView();
+                    dataGrid.ItemsSource = parseFileDialog.OrderedWordCounting.Values;
                 }
             }
         }
@@ -71,11 +67,6 @@ namespace WordCounter.Wpf
         {
             var fileInfo = new FileInfo(path);
             fileTextBox.Text = fileInfo.Name;
-        }
-
-        private void dataGrid_LoadingRow(object sender, System.Windows.Controls.DataGridRowEventArgs e)
-        {
-
         }
     }
 }

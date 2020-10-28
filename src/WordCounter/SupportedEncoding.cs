@@ -12,7 +12,7 @@ namespace WordCounter
         };
 
         /// <summary>
-        /// Provides .NET Core support for additional code-page based encodings, including Windows-1252.
+        /// Provides .NET Core support for additional code-page based encodings, including Windows-1252 (aka ANSI).
         /// </summary>
         /// <seealso href="https://docs.microsoft.com/en-us/dotnet/api/system.text.encoding?view=netcore-3.1#list-of-encodings"/>
         static SupportedEncoding() => Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
