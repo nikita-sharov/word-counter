@@ -23,9 +23,13 @@ namespace WordCounter.Tests
         public void TokenizeBible()
         {
             string text = FileTests.GetBibleText();
-            string[] words = Tokenizer.Tokenize(text).ToArray();
-            Assert.IsNotNull(words);
-            Assert.AreEqual(824225, words.Length);
+
+            string[] allWords = Tokenizer.Tokenize(text).ToArray();
+            Assert.IsNotNull(allWords);
+            Assert.AreEqual(824_225, allWords.Length); // compare to 749_264 from the IParserTests.cs
+
+            string[] uniqueWords = allWords.Distinct().ToArray();
+            Assert.AreEqual(34_081, uniqueWords.Length); // compare to 30_141, respectively
         }
     }
 }
