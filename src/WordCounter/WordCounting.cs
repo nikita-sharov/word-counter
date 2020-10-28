@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 
 namespace WordCounter
 {
@@ -10,5 +11,7 @@ namespace WordCounter
             : base(dictionary)
         {
         }
+
+        public int TotalWordCount => Values.Sum();
     }
 }

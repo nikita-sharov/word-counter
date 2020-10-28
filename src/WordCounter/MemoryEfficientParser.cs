@@ -6,11 +6,25 @@ using System.Threading.Tasks;
 
 namespace WordCounter
 {
-    public sealed class MemoryEfficientSequentialParser : IParser
+    /// <summary>
+    /// A sequential implementation of an <see cref="IParser"/>, being more memory-efficient but
+    /// less performant than the <see cref="PerformanceOptimizedParser"/>.
+    /// </summary>
+    /// <remarks>Reads the text file line by line counting word occurencies.</remarks>
+    public sealed class MemoryEfficientParser : Parser
     {
-        ITokenizer Tokenizer { get; set; } = new RegexTokenizer();
+        public MemoryEfficientParser()
+            : this(new LazyTokenizer())
+        {
+        }
 
-        public async Task<WordCounting> ParseAsync(string path, Encoding encoding, CancellationToken cancellationToken)
+        public MemoryEfficientParser(ITokenizer tokenizer)
+            : base(tokenizer)
+        {
+        }
+
+        public override async Task<WordCounting> ParseAsync(
+            string path, Encoding encoding, CancellationToken cancellationToken = default)
         {
             var counting = new WordCounting();
             using (var reader = new StreamReader(path, encoding))

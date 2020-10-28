@@ -7,11 +7,25 @@ using System.Threading.Tasks;
 
 namespace WordCounter
 {
-    public sealed class PerformanceOptimizedParallelParser : IParser
+    public sealed class PerformanceOptimizedParser : Parser
     {
-        public ITokenizer Tokenizer { get; private set; } = new LazyTokenizer();
+        /// <summary>
+        /// A parallelized implementation of an <see cref="IParser"/>, being more performant but
+        /// less memory-efficient than the <see cref="PerformanceOptimizedParser"/>.
+        /// </summary>
+        /// <remarks>Reads the whole text file at once counting word occurencies in parallel afterwards.</remarks>
+        public PerformanceOptimizedParser()
+            : this(new LazyTokenizer())
+        {
+        }
 
-        public Task<WordCounting> ParseAsync(string path, Encoding encoding, CancellationToken cancellationToken)
+        public PerformanceOptimizedParser(ITokenizer tokenizer)
+            : base(tokenizer)
+        {
+        }
+
+        public override Task<WordCounting> ParseAsync(
+            string path, Encoding encoding, CancellationToken cancellationToken = default)
         {
             var globalCounting = new ConcurrentDictionary<string, int>();
 
@@ -44,7 +58,7 @@ namespace WordCounter
                 {
                     foreach (KeyValuePair<string, int> wordCount in localCounting)
                     {
-                        globalCounting.AddOrUpdate(wordCount.Key, 1, (word, oldValue) => oldValue += wordCount.Value);
+                        globalCounting.AddOrUpdate(wordCount.Key, 1, (word, oldValue) => oldValue + wordCount.Value);
                     }
                 });
 

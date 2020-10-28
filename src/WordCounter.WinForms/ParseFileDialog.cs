@@ -9,7 +9,7 @@ namespace WordCounter.WinForms
     public partial class ParseFileDialog : Form
     {
         public ParseFileDialog(string path, Encoding encoding)
-            : this(new MemoryEfficientSequentialParser(), path, encoding)
+            : this(new MemoryEfficientParser(), path, encoding)
         {
         }
 

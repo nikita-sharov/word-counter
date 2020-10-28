@@ -6,6 +6,9 @@ namespace WordCounter
 {
     public interface IParser
     {
-        Task<WordCounting> ParseAsync(string path, Encoding encoding, CancellationToken cancellationToken);
+        /// <summary>
+        /// Counts word occurencies in the given text file.
+        /// </summary>
+        Task<WordCounting> ParseAsync(string path, Encoding encoding, CancellationToken cancellationToken = default);
     }
 }

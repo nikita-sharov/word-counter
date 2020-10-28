@@ -4,7 +4,7 @@ using System.Text.RegularExpressions;
 namespace WordCounter.Tests
 {
     [TestClass]
-    ////[Ignore("Exploratory testing")]
+    [Ignore("Exploratory testing")]
     public class RegexTests
     {
         [TestMethod]

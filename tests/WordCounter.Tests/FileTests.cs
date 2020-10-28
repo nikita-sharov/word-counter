@@ -1,5 +1,6 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.IO;
+using System.Text;
 
 namespace WordCounter.Tests
 {
@@ -7,29 +8,38 @@ namespace WordCounter.Tests
     [Ignore("Exploratory testing")]
     public class FileTests
     {
-        // https://datasets.imdbws.com/title.principals.tsv.gz (1.7 GB, uncompressed)
-        private const string Path = "data/imdb_title-principals.tsv";
+        // https://datasets.imdbws.com/title.principals.tsv.gz
+        ////public const string Path = "data/imdb_title-principals.tsv"; // 1.7 GB, uncompressed
 
-        [DataTestMethod]
-        [DataRow(Path)]
-        public void ReadAllBytes(string path)
+        private static string BibleText;
+
+        public static string GetBibleText()
         {
-            File.ReadAllBytes(path);
+            if (BibleText == null)
+            {
+                BibleText = File.ReadAllText("data/gutenberg_king-james-bible.txt", Encoding.UTF8);
+            }
+
+            return BibleText;
         }
 
         [DataTestMethod]
-        [DataRow(Path)]
-        public void ReadAllText(string path)
+        public void ReadAllBytes()
+        {
+            File.ReadAllBytes(FilePath.ImdbTitleAkasSubset);
+        }
+
+        [DataTestMethod]
+        public void ReadAllText()
         {
             // OutOfMemoryException potential
-            File.ReadAllText(path);
+            File.ReadAllText(FilePath.ImdbTitleAkasSubset);
         }
 
         [DataTestMethod]
-        [DataRow(Path)]
-        public void ReadAllLines(string path)
+        public void ReadAllLines()
         {
-            File.ReadAllLines(path);
+            File.ReadAllLines(FilePath.ImdbTitleAkasSubset);
         }
     }
 }
