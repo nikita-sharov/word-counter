@@ -13,7 +13,6 @@ namespace WordCounter
                 {
                     if (wordStartIndex >= 0)
                     {
-
                         string word = text.Substring(wordStartIndex, charIndex - wordStartIndex);
                         wordStartIndex = -1;
                         yield return word;

@@ -12,7 +12,7 @@ namespace WordCounter
     {
         /// <summary>
         /// A parallelized implementation of an <see cref="IParser"/>, being more performant but
-        /// sluggish in cancelation and less memory-efficient than the <see cref="HighPerformanceParser"/>.
+        /// sluggish in cancelation and less memory-efficient than the <see cref="MemoryEfficientParser"/>.
         /// </summary>
         /// <remarks>Reads the whole text file at once counting word occurencies in parallel afterwards.</remarks>
         public HighPerformanceParser()
