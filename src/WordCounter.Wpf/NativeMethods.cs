@@ -18,7 +18,7 @@ namespace WordCounter.Wpf
         private static extern int SetWindowLong(IntPtr hWnd, int nIndex, int dwNewLong);
 
         /// <summary>
-        /// Hides the closed button of a loaded <see cref="Window"/>.
+        /// Hides the close button of a loaded <see cref="Window"/>.
         /// </summary>
         /// <remarks>Also hides other control box (minimize / maximize / help) buttons, if available.</remarks>
         public static void HideCloseButton(Window window)
