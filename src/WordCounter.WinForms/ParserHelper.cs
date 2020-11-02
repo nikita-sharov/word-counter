@@ -12,36 +12,29 @@ namespace WordCounter.WinForms
 
         public static async Task<OrderedWordCounting> ParseAsync(string path, Encoding encoding)
         {
-            var cancellationTokenSource = new CancellationTokenSource();
-            try
+            using var cancellationTokenSource = new CancellationTokenSource();
+            Task<OrderedWordCounting> countingTask = Task.Run(() =>
             {
-                Task<OrderedWordCounting> countingTask = Task.Run(() =>
+                try
                 {
-                    try
-                    {
-                        return Parser.ParseAsync(path, encoding, cancellationTokenSource.Token)
-                            .ContinueWith(task => task.Result.ToOrderedWordCounting());
-                    }
-                    catch (OperationCanceledException ex)
-                    {
-                        return Task.FromCanceled<OrderedWordCounting>(ex.CancellationToken);
-                    }
-                });
-
-                Task progressDialogDelayTask = Task.Delay(ProgressDialogDelay);
-                await Task.WhenAny(countingTask, progressDialogDelayTask);
-                if (progressDialogDelayTask.IsCompleted)
-                {
-                    using var progressDialog = new ProgressDialog(countingTask, cancellationTokenSource);
-                    progressDialog.ShowDialog();
+                    return Parser.ParseAsync(path, encoding, cancellationTokenSource.Token)
+                        .ContinueWith(task => task.Result.ToOrderedWordCounting());
                 }
+                catch (OperationCanceledException ex)
+                {
+                    return Task.FromCanceled<OrderedWordCounting>(ex.CancellationToken);
+                }
+            });
 
-                return countingTask.Result;
-            }
-            finally
+            Task progressDialogDelayTask = Task.Delay(ProgressDialogDelay);
+            await Task.WhenAny(countingTask, progressDialogDelayTask);
+            if (progressDialogDelayTask.IsCompleted)
             {
-                cancellationTokenSource.Dispose();
+                using var progressDialog = new ProgressDialog(countingTask, cancellationTokenSource);
+                progressDialog.ShowDialog();
             }
+
+            return countingTask.Result;
         }
     }
 }
