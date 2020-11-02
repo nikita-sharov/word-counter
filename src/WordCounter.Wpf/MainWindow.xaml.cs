@@ -36,8 +36,11 @@ namespace WordCounter.Wpf
             if (openFileDialog.ShowDialog() == true)
             {
                 Encoding encoding = GetSelectedEncoding();
-                var parseFileDialog = new ParseFileDialog(openFileDialog.FileName, encoding);
-                parseFileDialog.Owner = this;
+                var parseFileDialog = new ParseFileDialog(openFileDialog.FileName, encoding)
+                {
+                    Owner = this
+                };
+
                 if (parseFileDialog.ShowDialog() == true)
                 {
                     UpdateFileTextBox(openFileDialog.FileName);

@@ -1,7 +1,5 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace WordCounter.Tests
@@ -14,11 +12,11 @@ namespace WordCounter.Tests
         {
             Task.Run(() =>
             {
-                throw new Exception();
+                throw new NotImplementedException();
             }).ContinueWith((t) =>
             {
                 // ignore
-            });
+            }, TaskScheduler.Default);
         }
     }
 }

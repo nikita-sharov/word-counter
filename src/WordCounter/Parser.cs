@@ -7,7 +7,7 @@ namespace WordCounter
 {
     public abstract class Parser : IParser
     {
-        public Parser(ITokenizer tokenizer)
+        protected Parser(ITokenizer tokenizer)
         {
             Tokenizer = tokenizer;
         }

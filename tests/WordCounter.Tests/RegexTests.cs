@@ -15,7 +15,7 @@ namespace WordCounter.Tests
         }
 
         [TestMethod]
-        public void Split_Untrimmed()
+        public void SplitUntrimmed()
         {
             string[] words = Regex.Split(" a\n b  c ", @"\s+");
             CollectionAssert.AreEquivalent(new string[] { "", "a", "b", "c" }, words);

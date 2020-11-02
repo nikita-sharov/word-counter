@@ -38,21 +38,6 @@ namespace WordCounter.Wpf
 
         private CancellationTokenSource CancellationTokenSource { get; } = new CancellationTokenSource();
 
-        [DllImport("user32.dll")]
-        private static extern int GetWindowLong(IntPtr hWnd, int nIndex);
-
-        [DllImport("user32.dll")]
-        private static extern int SetWindowLong(IntPtr hWnd, int nIndex, int dwNewLong);
-
-        private void HideCloseButton()
-        {
-            // See: https://stackoverflow.com/a/958980/14273692
-            const int GWL_STYLE = -16;
-            const int WS_SYSMENU = 0x80000;
-            IntPtr hwnd = new WindowInteropHelper(this).Handle;
-            SetWindowLong(hwnd, GWL_STYLE, GetWindowLong(hwnd, GWL_STYLE) & ~WS_SYSMENU);
-        }
-
         private void UpdateDialogTitle()
         {
             var fileInfo = new FileInfo(Path);
@@ -61,7 +46,7 @@ namespace WordCounter.Wpf
 
         private async void OnLoaded(object sender, RoutedEventArgs e)
         {
-            HideCloseButton();
+            NativeMethods.HideCloseButton(this);
             try
             {
                 OrderedWordCounting = await Task.Run(() =>
@@ -69,7 +54,7 @@ namespace WordCounter.Wpf
                     try
                     {
                         return Parser.ParseAsync(Path, Encoding, CancellationTokenSource.Token)
-                            .ContinueWith(task => task.Result.OrderByWordCountDescending());
+                            .ContinueWith(task => task.Result.OrderByWordCountDescending(), TaskScheduler.Default);
                     }
                     catch (OperationCanceledException ex)
                     {

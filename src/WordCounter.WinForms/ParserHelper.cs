@@ -18,7 +18,7 @@ namespace WordCounter.WinForms
                 try
                 {
                     return Parser.ParseAsync(path, encoding, cancellationTokenSource.Token)
-                        .ContinueWith(task => task.Result.ToOrderedWordCounting());
+                        .ContinueWith(task => task.Result.ToOrderedWordCounting(), TaskScheduler.Default);
                 }
                 catch (OperationCanceledException ex)
                 {

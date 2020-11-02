@@ -7,7 +7,7 @@ A coding dojo
 - ~~Progress dialog flicker prevention on smaller text files (parsing time under 0.5 seconds)~~ (implemented in [WordCounter.WinForms](/src/WordCounter.WinForms))
 - Fine-grained progress reporting (reading file, decoding text, counting words, percentage)
 - ~~GlobalAssemblyInfo.cs~~ (replaced by [Directory.Build.props](Directory.Build.props))
-- Microsoft.CodeAnalysis.FxCopAnalyzers conformance
+- ~~Microsoft.CodeAnalysis.FxCopAnalyzers conformance~~
 - Resource files
 - German localization
 - Exception handling (File-IO based)
@@ -19,4 +19,5 @@ A coding dojo
 - Installer
 - MVVM pattern
 - UWP (WinUI / Telerik UI for WPF) solution (Windows 10 only)
-- Web application
+- Web application (Angular)
+

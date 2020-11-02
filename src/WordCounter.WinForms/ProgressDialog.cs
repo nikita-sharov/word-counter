@@ -9,8 +9,8 @@ namespace WordCounter.WinForms
     {
         private static readonly TimeSpan MinDisplayDuration = TimeSpan.FromMilliseconds(500);
 
-        private Task _task;
-        private CancellationTokenSource _cancellationTokenSource;
+        private readonly Task _task;
+        private readonly CancellationTokenSource _cancellationTokenSource;
 
         public ProgressDialog(Task task, CancellationTokenSource cancellationTokenSource)
         {
@@ -38,7 +38,9 @@ namespace WordCounter.WinForms
         {
             _cancellationTokenSource.Cancel();
             cancelButton.Enabled = false;
+#pragma warning disable CA1303 // Do not pass literals as localized parameters
             Text = "Canceling";
+#pragma warning restore CA1303 // Do not pass literals as localized parameters
         }
     }
 }
