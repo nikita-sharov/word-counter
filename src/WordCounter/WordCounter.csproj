@@ -2,13 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
-    <Authors>Nikita Sharov</Authors>
-    <Company>Actin Uranium</Company>
-    <Product>Word Counter</Product>
-    <Version>2020.10.28</Version>
-    <NeutralLanguage>en</NeutralLanguage>
-    <Copyright>2020 Nikita Sharov</Copyright>
-    <PackageLicenseFile>LICENSE.md</PackageLicenseFile>
+    <Version>2020.11.2</Version>
     <PackageLicenseExpression>Copyright (c) 2020 Nikita Sharov</PackageLicenseExpression>
     <PackageProjectUrl>https://github.com/nikita-sharov/word-counter</PackageProjectUrl>
     <RepositoryUrl>https://github.com/nikita-sharov/word-counter</RepositoryUrl>

@@ -1,18 +1,11 @@
-﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
 
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <UseWPF>true</UseWPF>
-    <Version>2020.10.28</Version>
-    <Authors>Nikita Sharov</Authors>
-    <Company>Actin Uranium</Company>
-    <Product>Word Counter</Product>
-    <Copyright>2020 Nikita Sharov</Copyright>
-    <PackageLicenseExpression>Copyright (c) 2020 Nikita Sharov</PackageLicenseExpression>
-    <PackageProjectUrl>https://github.com/nikita-sharov/word-counter</PackageProjectUrl>
+    <Version>2020.11.2</Version>
     <RepositoryUrl>https://github.com/nikita-sharov/word-counter</RepositoryUrl>
-    <NeutralLanguage>en</NeutralLanguage>
   </PropertyGroup>
 
   <ItemGroup>

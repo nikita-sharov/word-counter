@@ -11,17 +11,18 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 	ProjectSection(SolutionItems) = preProject
 		.editorconfig = .editorconfig
 		.gitignore = .gitignore
+		Directory.Build.props = Directory.Build.props
 		LICENSE.md = LICENSE.md
 		README.md = README.md
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WordCounter.Tests", "tests\WordCounter.Tests\WordCounter.Tests.csproj", "{539C4973-4C74-4273-96F4-05205B82D439}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WordCounter.Tests", "tests\WordCounter.Tests\WordCounter.Tests.csproj", "{539C4973-4C74-4273-96F4-05205B82D439}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WordCounter", "src\WordCounter\WordCounter.csproj", "{14537BCD-AEF9-4284-9839-F174B48C8A13}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WordCounter", "src\WordCounter\WordCounter.csproj", "{14537BCD-AEF9-4284-9839-F174B48C8A13}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WordCounter.WinForms", "src\WordCounter.WinForms\WordCounter.WinForms.csproj", "{8A656245-91FE-43A4-9278-695DC7A5B667}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WordCounter.WinForms", "src\WordCounter.WinForms\WordCounter.WinForms.csproj", "{8A656245-91FE-43A4-9278-695DC7A5B667}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WordCounter.Wpf", "src\WordCounter.Wpf\WordCounter.Wpf.csproj", "{44149939-691C-4F77-AC43-05A6F1DFC7E5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WordCounter.Wpf", "src\WordCounter.Wpf\WordCounter.Wpf.csproj", "{44149939-691C-4F77-AC43-05A6F1DFC7E5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

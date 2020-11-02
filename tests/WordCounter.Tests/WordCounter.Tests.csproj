@@ -2,25 +2,9 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
-
     <IsPackable>false</IsPackable>
-
     <Version>2020.10.28</Version>
-
-    <NeutralLanguage>en</NeutralLanguage>
-
-    <Copyright>2020 Nikita Sharov</Copyright>
-
-    <Authors>Nikita Sharov</Authors>
-
-    <Company>Actin Uranium</Company>
-
     <Product>Word Counter</Product>
-
-    <PackageLicenseExpression>Copyright (c) 2020 Nikita Sharov</PackageLicenseExpression>
-
-    <PackageProjectUrl>https://github.com/nikita-sharov/word-counter</PackageProjectUrl>
-
     <RepositoryUrl>https://github.com/nikita-sharov/word-counter</RepositoryUrl>
   </PropertyGroup>
 

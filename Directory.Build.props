@@ -1,0 +1,10 @@
+<Project>
+  <PropertyGroup>
+    <Authors>Nikita Sharov</Authors>
+    <Company>Actin Uranium</Company>
+    <Copyright>2020 Nikita Sharov</Copyright>
+    <NeutralLanguage>en</NeutralLanguage>
+    <Product>Word Counter</Product>
+    <RepositoryUrl>https://github.com/nikita-sharov/word-counter</RepositoryUrl>
+  </PropertyGroup>
+</Project>
