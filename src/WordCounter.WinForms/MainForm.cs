@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Globalization;
 using System.IO;
 using System.Text;
 using System.Threading;
@@ -95,7 +96,7 @@ namespace WordCounter.WinForms
             }
             else if (e.ColumnIndex == 1)
             {
-                e.Value = wordCount.Value.ToString("N0");
+                e.Value = wordCount.Value.ToString("N0", CultureInfo.CurrentCulture);
             }
             else
             {
