@@ -1,17 +1,20 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Data;
-using System.Linq;
-using System.Threading.Tasks;
+using System.Globalization;
 using System.Windows;
+using System.Windows.Markup;
 
 namespace WordCounter.Wpf
 {
-    /// <summary>
-    /// Interaction logic for App.xaml
-    /// </summary>
     public partial class App : Application
     {
+        /// <summary>
+        /// Ensures <see cref="CultureInfo.CurrentUICulture"/> to represent user's current OS locale setting.
+        /// </summary>
+        private void OnStartup(object sender, StartupEventArgs e)
+        {
+            CultureInfo.CurrentUICulture = CultureInfo.CurrentCulture;
+            var language = XmlLanguage.GetLanguage(CultureInfo.CurrentCulture.IetfLanguageTag);
+            var metadata = new FrameworkPropertyMetadata(language);
+            FrameworkElement.LanguageProperty.OverrideMetadata(typeof(FrameworkElement), metadata);
+        }
     }
 }

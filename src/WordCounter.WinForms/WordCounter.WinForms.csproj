@@ -4,8 +4,6 @@
     <OutputType>WinExe</OutputType>
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <UseWindowsForms>true</UseWindowsForms>
-    <AssemblyVersion>2020.11.2.0</AssemblyVersion>
-    <FileVersion>2020.11.2.0</FileVersion>
     <Version>2020.11.2</Version>
   </PropertyGroup>
 

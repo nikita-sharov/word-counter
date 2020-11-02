@@ -5,7 +5,6 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <UseWPF>true</UseWPF>
     <Version>2020.11.2</Version>
-    <RepositoryUrl>https://github.com/nikita-sharov/word-counter</RepositoryUrl>
   </PropertyGroup>
 
   <ItemGroup>

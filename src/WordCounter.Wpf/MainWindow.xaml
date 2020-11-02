@@ -94,7 +94,7 @@
                 </DataGridTextColumn>
                 <DataGridTextColumn
                     Width="*"
-                    Binding="{Binding Value}"
+                    Binding="{Binding Value, StringFormat=N0}"
                     CanUserReorder="False"
                     CanUserSort="False"
                     Header="Count">
