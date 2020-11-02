@@ -8,6 +8,7 @@ namespace WordCounter.WinForms
     internal static class ParserHelper
     {
         private static readonly IParser Parser = new HighPerformanceParser();
+        private static readonly TimeSpan ProgressDialogDelay = TimeSpan.FromMilliseconds(300);
 
         public static async Task<OrderedWordCounting> ParseAsync(string path, Encoding encoding)
         {
@@ -27,9 +28,9 @@ namespace WordCounter.WinForms
                     }
                 });
 
-                Task delayTask = Task.Delay(0);
-                await Task.WhenAny(countingTask, delayTask);
-                if (delayTask.IsCompleted)
+                Task progressDialogDelayTask = Task.Delay(ProgressDialogDelay);
+                await Task.WhenAny(countingTask, progressDialogDelayTask);
+                if (progressDialogDelayTask.IsCompleted)
                 {
                     using var progressDialog = new ProgressDialog(countingTask, cancellationTokenSource);
                     progressDialog.ShowDialog();

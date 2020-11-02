@@ -12,6 +12,7 @@ A coding dojo
 - German localization
 - Exception handling (File-IO based)
 - Representative application icons in multiple sizes
+- NuGet package for the [core library](/src/WordCounter)
 - Additional statistics (total word count, file size, memory usage, etc.)
 - User settings (window size and position, recently parsed files)
 - Start-up with the last parsed file pre-loaded (binary serialized stats)
