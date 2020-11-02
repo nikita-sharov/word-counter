@@ -25,4 +25,10 @@
     <ProjectReference Include="..\WordCounter\WordCounter.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Compile Update="ProgressDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+  </ItemGroup>
+
 </Project>

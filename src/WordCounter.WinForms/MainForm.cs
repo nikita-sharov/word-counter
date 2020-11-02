@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Text;
+using System.Threading;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace WordCounter.WinForms
@@ -37,18 +39,21 @@ namespace WordCounter.WinForms
             dataGridView.Columns[0].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
         }
 
-        private void OnParseButtonClick(object sender, EventArgs e)
+        private async void OnParseButtonClick(object sender, EventArgs e)
         {
             using var openFileDialog = CreateOpenFileDialog();
             if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
                 Encoding encoding = GetSelectedEncoding();
-                using var parseFileDialog = new ParseFileDialog(openFileDialog.FileName, encoding);
-                if (parseFileDialog.ShowDialog() == DialogResult.OK)
+                try
                 {
-                    orderedWordCounting = parseFileDialog.OrderedWordCounting;
+                    orderedWordCounting = await ParserHelper.ParseAsync(openFileDialog.FileName, encoding);
                     UpdateFileTextBox(openFileDialog.FileName);
                     UpdateDataGridView();
+                }
+                catch (AggregateException aggregateException)
+                {
+                    aggregateException.Handle(innerException => innerException is OperationCanceledException);
                 }
             }
         }
@@ -59,6 +64,7 @@ namespace WordCounter.WinForms
                 Title = "Parse File",
                 RestoreDirectory = true,
                 Filter = "Text files (*.txt)|*.txt|All files (*.*)|*.*",
+                FilterIndex = 2,
                 Multiselect = false,
                 CheckFileExists = true
             };

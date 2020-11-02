@@ -11,16 +11,19 @@ namespace WordCounter
             {
                 if (char.IsWhiteSpace(text[charIndex]))
                 {
-                    if (wordStartIndex >= 0)
+                    bool isFirstAfterWord = wordStartIndex >= 0;
+                    if (isFirstAfterWord)
                     {
-                        string word = text.Substring(wordStartIndex, charIndex - wordStartIndex);
+                        int wordLength = charIndex - wordStartIndex;
+                        string word = text.Substring(wordStartIndex, wordLength);
                         wordStartIndex = -1;
                         yield return word;
                     }
                 }
                 else
                 {
-                    if (wordStartIndex < 0)
+                    bool isFirstOfNewWord = wordStartIndex < 0;
+                    if (isFirstOfNewWord)
                     {
                         wordStartIndex = charIndex;
                     }

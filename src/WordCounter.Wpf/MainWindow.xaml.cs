@@ -9,8 +9,6 @@ namespace WordCounter.Wpf
 {
     public partial class MainWindow : Window
     {
-        private OrderedWordCounting orderedWordCounting;
-
         public MainWindow()
         {
             InitializeComponent();
@@ -43,7 +41,7 @@ namespace WordCounter.Wpf
                 if (parseFileDialog.ShowDialog() == true)
                 {
                     UpdateFileTextBox(openFileDialog.FileName);
-                    dataGrid.ItemsSource = parseFileDialog.OrderedWordCounting.Values;
+                    dataGrid.ItemsSource = parseFileDialog.OrderedWordCounting;
                 }
             }
         }

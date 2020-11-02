@@ -34,5 +34,8 @@ namespace WordCounter
 
             return mergedCountings;
         }
+
+        public IOrderedEnumerable<KeyValuePair<string, int>> OrderByWordCountDescending() =>
+            this.OrderByDescending(wordCount => wordCount.Value);
     }
 }

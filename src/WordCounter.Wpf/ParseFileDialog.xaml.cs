@@ -1,5 +1,7 @@
 using System;
+using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading;
@@ -31,7 +33,8 @@ namespace WordCounter.Wpf
 
         public Encoding Encoding { get; private set; }
 
-        public OrderedWordCounting OrderedWordCounting { get; private set; } = new OrderedWordCounting();
+        public IEnumerable<KeyValuePair<string, int>> OrderedWordCounting { get; private set; } =
+            new List<KeyValuePair<string, int>>();
 
         private CancellationTokenSource CancellationTokenSource { get; } = new CancellationTokenSource();
 
@@ -61,19 +64,19 @@ namespace WordCounter.Wpf
             HideCloseButton();
             try
             {
-                WordCounting counting = await Task.Run(() =>
+                OrderedWordCounting = await Task.Run(() =>
                 {
                     try
                     {
-                        return Parser.ParseAsync(Path, Encoding, CancellationTokenSource.Token);
+                        return Parser.ParseAsync(Path, Encoding, CancellationTokenSource.Token)
+                            .ContinueWith(task => task.Result.OrderByWordCountDescending());
                     }
                     catch (OperationCanceledException ex)
                     {
-                        return Task.FromCanceled<WordCounting>(ex.CancellationToken);
+                        return Task.FromCanceled<IOrderedEnumerable<KeyValuePair<string, int>>>(ex.CancellationToken);
                     }
                 });
 
-                OrderedWordCounting = OrderedWordCounting.OrderByWordCountDescending(counting);
                 DialogResult = true;
             }
             catch (OperationCanceledException)

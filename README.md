@@ -4,8 +4,8 @@ A coding dojo
 
 ## Nice to have
 
-- Progress dialog flicker prevention on smaller text files (parsing time under 0.5 seconds)
-- Fine-grained progress reporting (reading file, decoding text, counting words)
+- ~~Progress dialog flicker prevention on smaller text files (parsing time under 0.5 seconds)~~ (implemented in [WordCounter.WinForms](src/WordCounter.WinForms))
+- Fine-grained progress reporting (reading file, decoding text, counting words, percentage)
 - GlobalAssemblyInfo.cs
 - Microsoft.CodeAnalysis.FxCopAnalyzers conformance
 - Resource files

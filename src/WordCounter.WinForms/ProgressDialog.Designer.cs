@@ -1,6 +1,6 @@
 namespace WordCounter.WinForms
 {
-    partial class ParseFileDialog
+    partial class ProgressDialog
     {
         /// <summary>
         /// Required designer variable.
@@ -16,7 +16,6 @@ namespace WordCounter.WinForms
             if (disposing && (components != null))
             {
                 components.Dispose();
-                CancellationTokenSource.Dispose();
             }
 
             base.Dispose(disposing);
@@ -53,7 +52,7 @@ namespace WordCounter.WinForms
             this.cancelButton.UseVisualStyleBackColor = true;
             this.cancelButton.Click += new System.EventHandler(this.OnCancelButtonClick);
             // 
-            // ParseFileDialog
+            // ProgressDialog
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -62,7 +61,7 @@ namespace WordCounter.WinForms
             this.Controls.Add(this.cancelButton);
             this.Controls.Add(this.progressBar);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
-            this.Name = "ParseFileDialog";
+            this.Name = "ProgressDialog";
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Parsing";
