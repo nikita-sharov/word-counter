@@ -38,9 +38,7 @@ namespace WordCounter.WinForms
         {
             _cancellationTokenSource.Cancel();
             cancelButton.Enabled = false;
-#pragma warning disable CA1303 // Do not pass literals as localized parameters
             Text = "Canceling";
-#pragma warning restore CA1303 // Do not pass literals as localized parameters
         }
     }
 }

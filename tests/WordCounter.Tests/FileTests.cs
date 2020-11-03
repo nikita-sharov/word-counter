@@ -20,20 +20,20 @@ namespace WordCounter.Tests
             return BibleText;
         }
 
-        [DataTestMethod]
+        [TestMethod]
         public void ReadAllBytes()
         {
             File.ReadAllBytes(FilePath.ImdbTitleAkasSubset);
         }
 
-        [DataTestMethod]
+        [TestMethod]
         public void ReadAllText()
         {
             // OutOfMemoryException potential
             File.ReadAllText(FilePath.ImdbTitleAkasSubset);
         }
 
-        [DataTestMethod]
+        [TestMethod]
         public void ReadAllLines()
         {
             File.ReadAllLines(FilePath.ImdbTitleAkasSubset);
