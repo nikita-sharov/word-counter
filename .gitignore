@@ -355,3 +355,5 @@ MigrationBackup/
 /tests/WordCounter.Tests/data/imdb_title-basics.tsv
 /tests/WordCounter.Tests/data/imdb_title-akas.tsv
 /tests/WordCounter.Tests/data/imdb_name-basics.tsv
+/src/WordCounter.WinForms/MainForm.resx
+/src/WordCounter.WinForms/ProgressDialog.resx

@@ -1,4 +1,5 @@
 using System;
+using System.IO;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
@@ -31,6 +32,7 @@ namespace WordCounter.WinForms
             if (progressDialogDelayTask.IsCompleted)
             {
                 using var progressDialog = new ProgressDialog(countingTask, cancellationTokenSource);
+                progressDialog.Text += $" {new FileInfo(path).Name}";
                 progressDialog.ShowDialog();
             }
 

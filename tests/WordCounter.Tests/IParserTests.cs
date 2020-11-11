@@ -6,7 +6,7 @@ namespace WordCounter.Tests
 {
     public abstract class IParserTests
     {
-        public IParserTests(IParser parser)
+        protected IParserTests(IParser parser)
         {
             Parser = parser;
         }

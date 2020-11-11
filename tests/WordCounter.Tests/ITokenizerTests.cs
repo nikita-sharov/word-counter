@@ -5,7 +5,7 @@ namespace WordCounter.Tests
 {
     public abstract class ITokenizerTests
     {
-        public ITokenizerTests(ITokenizer tokenizer)
+        protected ITokenizerTests(ITokenizer tokenizer)
         {
             Tokenizer = tokenizer;
         }
