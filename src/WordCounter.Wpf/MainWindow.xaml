@@ -32,7 +32,7 @@
             Height="23"
             HorizontalAlignment="Stretch"
             VerticalAlignment="Bottom"
-            VerticalContentAlignment="Center" />
+            VerticalContentAlignment="Center" TabIndex="3" />
         <Label
             Grid.Row="2"
             Padding="0,5,0,5"
@@ -60,7 +60,7 @@
                 Width="75"
                 Margin="5,0,0,0"
                 Click="OnParseButtonClick"
-                Content="Parse..." />
+                Content="Parse..." TabIndex="1" />
         </Grid>
         <DataGrid
             x:Name="dataGrid"
@@ -73,7 +73,7 @@
             HeadersVisibility="Column"
             HorizontalGridLinesBrush="#FFA0A0A0"
             SelectionMode="Single"
-            VerticalGridLinesBrush="#FFA0A0A0">
+            VerticalGridLinesBrush="#FFA0A0A0" IsTabStop="True" TabIndex="2">
             <DataGrid.Columns>
                 <DataGridTextColumn
                     Width="*"

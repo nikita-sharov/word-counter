@@ -5,15 +5,15 @@ A coding dojo
 ## Superstructure
 
 <div style="display: flex; margin-bottom: 8px;">
-  <img src="docs/main-initial_winforms.png" style="margin-right: 8px;"/>
+  <img src="docs/main-initial_winforms.png" style="margin-right: 10px;"/>
   <img src="docs/main-initial_wpf.png"/>
 </div>
 <div style="display: flex; margin-bottom: 8px;">
-  <img src="docs/main-parsing_winforms.png" style="margin-right: 8px;"/>
+  <img src="docs/main-parsing_winforms.png" style="margin-right: 10px;"/>
   <img src="docs/main-parsing_wpf.png"/>
 </div>
 <div style="display: flex; margin-bottom: 8px;">
-  <img src="docs/main-result_winforms.png" style="margin-right: 8px;"/>
+  <img src="docs/main-result_winforms.png" style="margin-right: 10px;"/>
   <img src="docs/main-result_wpf.png"/>
 </div>
 
