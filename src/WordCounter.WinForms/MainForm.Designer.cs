@@ -48,14 +48,14 @@ namespace WordCounter.WinForms
             this.fileTextBox.Name = "fileTextBox";
             this.fileTextBox.PlaceholderText = "Select the file to parse using the encoding above";
             this.fileTextBox.ReadOnly = true;
-            this.fileTextBox.Size = new System.Drawing.Size(519, 23);
+            this.fileTextBox.Size = new System.Drawing.Size(359, 23);
             this.fileTextBox.TabIndex = 1;
             // 
             // parseButton
             // 
             this.parseButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.parseButton.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.parseButton.Location = new System.Drawing.Point(537, 70);
+            this.parseButton.Location = new System.Drawing.Point(377, 70);
             this.parseButton.Name = "parseButton";
             this.parseButton.Size = new System.Drawing.Size(75, 25);
             this.parseButton.TabIndex = 1;
@@ -107,7 +107,7 @@ namespace WordCounter.WinForms
             this.dataGridView.Name = "dataGridView";
             this.dataGridView.RowHeadersVisible = false;
             this.dataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView.Size = new System.Drawing.Size(600, 328);
+            this.dataGridView.Size = new System.Drawing.Size(440, 208);
             this.dataGridView.TabIndex = 2;
             this.dataGridView.Text = "dataGridView1";
             this.dataGridView.VirtualMode = true;
@@ -130,7 +130,7 @@ namespace WordCounter.WinForms
             this.encodingComboBox.FormattingEnabled = true;
             this.encodingComboBox.Location = new System.Drawing.Point(12, 27);
             this.encodingComboBox.Name = "encodingComboBox";
-            this.encodingComboBox.Size = new System.Drawing.Size(600, 23);
+            this.encodingComboBox.Size = new System.Drawing.Size(440, 23);
             this.encodingComboBox.Sorted = true;
             this.encodingComboBox.TabIndex = 3;
             this.encodingComboBox.SelectedValueChanged += new System.EventHandler(this.OnEncodingComboBoxSelectedValueChanged);
@@ -139,7 +139,7 @@ namespace WordCounter.WinForms
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(624, 441);
+            this.ClientSize = new System.Drawing.Size(464, 321);
             this.Controls.Add(this.encodingComboBox);
             this.Controls.Add(this.encodingLabel);
             this.Controls.Add(this.fileLabel);
