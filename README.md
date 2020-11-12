@@ -10,7 +10,6 @@ A coding dojo
 
 ## Substructure
 
-![Class diagram](docs/application-info.png)
 ![Class diagram](docs/word-counting.png)
 
 ## Backlog
