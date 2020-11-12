@@ -22,6 +22,5 @@ namespace WordCounter
             Version version = assembly.GetName().Version;
             return $"{version.Major}.{version.Minor}.{version.Build}";
         }
-
     }
 }
