@@ -8,12 +8,11 @@ A coding dojo
 ![Main, parsing](docs/main-parsing.png)
 ![Main, result](docs/main-result.png)
 
+## Substructure
 
-## Basis
+![Class diagram](docs/substructure.png)
 
-
-
-## Nice to have
+## Backlog
 
 - ~~Progress dialog flicker prevention on smaller text files (parsing time under 0.5 seconds)~~ (implemented in [WordCounter.WinForms](/src/WordCounter.WinForms))
 - Fine-grained progress reporting (reading file, decoding text, counting words, percentage)
