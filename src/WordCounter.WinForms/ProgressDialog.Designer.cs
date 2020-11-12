@@ -44,7 +44,7 @@ namespace WordCounter.WinForms
             // 
             // cancelButton
             // 
-            this.cancelButton.Location = new System.Drawing.Point(217, 41);
+            this.cancelButton.Location = new System.Drawing.Point(218, 41);
             this.cancelButton.Name = "cancelButton";
             this.cancelButton.Size = new System.Drawing.Size(75, 25);
             this.cancelButton.TabIndex = 1;
